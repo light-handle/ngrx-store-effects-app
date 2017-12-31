@@ -37,6 +37,10 @@ module.exports = config => {
           filename: null,
           test: /\.(ts|js)($|\?)/i,
         }),
+        new webpack.ContextReplacementPlugin(
+          /\@angular(\\|\/)core(\\|\/)esm5/,
+          path.join(__dirname, './client'),
+        ),
       ],
       resolve: {
         extensions: ['.ts', '.js'],
